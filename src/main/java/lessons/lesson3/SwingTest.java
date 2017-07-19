@@ -1,4 +1,4 @@
-package lessons.lesson2;
+package lessons.lesson3;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
