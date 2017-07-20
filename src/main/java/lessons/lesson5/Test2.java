@@ -13,6 +13,5 @@ public class Test2 {
         //使用Lambda表达式
         list.forEach(s -> System.out.println(s.toUpperCase()));
 
-        list.stream()
     }
 }
