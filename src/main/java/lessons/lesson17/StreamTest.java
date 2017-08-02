@@ -48,9 +48,8 @@ public class StreamTest {
         System.out.println("------------");
 
         List<Integer> list1 = Arrays.asList(1, 3, 5, 7, 9, 11);
-        //大于2的元素乘以2，忽略前两个，把剩下的元素求和
-        Integer collect2 = list1.stream().filter(integer -> integer > 2)
-                .map(integer1 -> integer1 * 2).skip(2).collect(Collectors.summingInt(Integer::intValue));
+        //大于2的元素乘以2，忽略前两个，再取出前两个求和
+        Integer collect2 = list1.stream().filter(integer -> integer > 2).mapToInt(i -> i *2 ).skip(2).limit(2).sum();
         System.out.println(collect2);
     }
 }
