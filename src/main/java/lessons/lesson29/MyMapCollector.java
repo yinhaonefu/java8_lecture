@@ -51,7 +51,9 @@ public class MyMapCollector<T> implements Collector<T,Set<T>,Map<T,T>> {
     }
 
     public static void main(String[] args) {
-        for (int i = 0;i < 200;i++){
+        System.out.println("核数:" + Runtime.getRuntime().availableProcessors());
+
+        for (int i = 0;i < 1;i++){
             List<String> list = Arrays.asList("hello", "world", "helloworld", "welcome", "a", "b", "c", "d", "e", "f", "g");
             Set<String> set = new HashSet<>();
             set.addAll(list);
