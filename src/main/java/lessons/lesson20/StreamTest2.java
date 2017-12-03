@@ -16,7 +16,7 @@ public class StreamTest2 {
         list.stream().mapToInt(s -> {
             System.out.println(s);//只会输出hello，不会将所有元素都应用
             return s.length();
-        }).filter(i -> i == 5).findFirst().ifPresent(System.out::println);
+        }).filter(i -> i == 5);
 
     }
 }

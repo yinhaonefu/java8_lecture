@@ -14,5 +14,9 @@ public class StreamTest2 {
         Optional<Integer> result = list.stream().map(integer -> integer * 2).reduce(Integer::sum);
 
         result.ifPresent(integer -> System.out.println(integer));
+
+        long a = 10001;
+        String s = String.valueOf(a);
+        System.out.println(s);
     }
 }
