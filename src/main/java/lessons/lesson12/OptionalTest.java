@@ -11,6 +11,12 @@ import java.util.Optional;
 public class OptionalTest {
     public static void main(String[] args) {
         Optional<String> optional = Optional.of("hello");
+
+        if (optional.isPresent()){
+            System.out.println(optional.get());
+        }
+
+
         //如果存在 正常处理
         optional.ifPresent(s -> System.out.println(s));//接收Consumer
         System.out.println("-------");
