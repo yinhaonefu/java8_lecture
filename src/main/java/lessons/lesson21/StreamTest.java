@@ -37,5 +37,7 @@ public class StreamTest {
         Map<Boolean, List<Student>> collect3 = students.stream().
                 collect(Collectors.partitioningBy(student -> student.getScore() > 80));
         System.out.println(collect3);
+        System.out.println(collect3.get(true));
+
     }
 }

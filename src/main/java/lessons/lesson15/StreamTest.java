@@ -17,5 +17,7 @@ public class StreamTest {
 
         List<String> list = Arrays.asList("hello","wor;d","helloworld");
         Stream<String> stream2 = list.stream();
+
+        Stream<String> stream3 = Arrays.stream(array);
     }
 }

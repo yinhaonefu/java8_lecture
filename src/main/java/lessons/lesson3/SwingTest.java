@@ -19,8 +19,6 @@ public class SwingTest {
             }
         });
 
-//        jButton.addActionListener(e -> System.out.println("Button Pressed!"));
-
         jFrame.add(jButton);
         jFrame.pack();
         jFrame.setVisible(true);

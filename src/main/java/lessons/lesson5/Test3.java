@@ -13,5 +13,7 @@ public class Test3 {
 
         //类方法引用中实例方法toUpperCase的调用者就是入参
         list.stream().map(String::toUpperCase).forEach(s -> System.out.println(s));
+
+        list.stream().filter(s -> s.length() > 5).map(s -> s.toUpperCase()).forEach(System.out::println);
     }
 }
