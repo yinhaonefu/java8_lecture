@@ -11,7 +11,27 @@ public class MyMapCollector<T> implements Collector<T,Set<T>,Map<T,T>> {
     @Override
     public Supplier<Set<T>> supplier() {
         System.out.println("supplier");
-        return HashSet::new;
+//        return HashSet::new;
+
+        /**
+         *     同一性 Collector文档说明
+         *
+         *     A a1 = supplier.get();
+         *     accumulator.accept(a1, t1);
+         *     accumulator.accept(a1, t2);
+         *     R r1 = finisher.apply(a1);  // result without splitting
+         *
+         *     A a2 = supplier.get();
+         *     accumulator.accept(a2, t1);
+         *     A a3 = supplier.get();
+         *     accumulator.accept(a3, t2);
+         *     R r2 = finisher.apply(combiner.apply(a2, a3));  // result with splitting
+         */
+        return () -> {
+            //当执行并行流，并且没有Characteristics.CONCURRENT特性时，会创建多个中间结果容器
+            System.out.println("create supplier " + Thread.currentThread().getName());
+            return new HashSet<T>();
+        };
     }
 
     @Override
@@ -47,7 +67,7 @@ public class MyMapCollector<T> implements Collector<T,Set<T>,Map<T,T>> {
     @Override
     public Set<Characteristics> characteristics() {
         System.out.println("characteristics");
-        return Collections.unmodifiableSet(EnumSet.of(Characteristics.UNORDERED,Characteristics.CONCURRENT));
+        return Collections.unmodifiableSet(EnumSet.of(Characteristics.UNORDERED));
     }
 
     public static void main(String[] args) {
